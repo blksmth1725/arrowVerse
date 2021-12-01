@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Box, Flex, Grid, Link } from "@chakra-ui/layout";
-import { Image } from "@chakra-ui/image";
 import { Heading, Text } from "@chakra-ui/layout";
+import { Image } from "@chakra-ui/image";
 import { Spacer } from "@chakra-ui/layout";
+import CastGrid from "./CastGrid";
 
-const MainPage = ({ arrow, cast, isLoading }) => {
-  const filteredCast = [
-    ...new Map(
-      cast.map((castMember) => [castMember.person.id, castMember])
-    ).values(),
-  ];
+const MainPage = ({ cast }) => {
+  const [arrow, setArrow] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
-  console.log(filteredCast);
+  useEffect(() => {
+    const fetchArrow = async () => {
+      const resultArrow = await axios.get(
+        `https://api.tvmaze.com/singlesearch/shows?q=arrow`
+      );
+      console.log(resultArrow.data);
+      setArrow(resultArrow.data);
+      setIsLoading(false);
+    };
+    fetchArrow();
+  }, []);
 
   return isLoading ? (
     <Heading>Loading...</Heading>
@@ -45,16 +54,7 @@ const MainPage = ({ arrow, cast, isLoading }) => {
           <Text letterSpacing="wider" w={900}>
             {arrow.summary}
           </Text>
-          <Heading>Cast Members</Heading>
-          <Grid templateColumns="repeat(4,1fr)" gap={4}>
-            {filteredCast.map((castMember) => (
-              <Box key={castMember.person.id}>
-                <Link href={castMember.person.url}>
-                  <Text>{castMember.person.name}</Text>
-                </Link>
-              </Box>
-            ))}
-          </Grid>
+          <CastGrid />
         </Box>
       </Flex>
     </Box>
