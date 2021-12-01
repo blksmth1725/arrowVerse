@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MainPage from "./components/MainPage";
+import { Box } from "@chakra-ui/layout";
 
 function App() {
   const [arrow, setArrow] = useState({});
-  const [cast, setCast] = useState({});
+  const [cast, setCast] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchItems = async () => {
+    const fetchArrow = async () => {
       const resultArrow = await axios.get(
         `https://api.tvmaze.com/singlesearch/shows?q=arrow`
       );
@@ -16,25 +17,24 @@ function App() {
       setArrow(resultArrow.data);
       setIsLoading(false);
     };
-    fetchItems();
+    fetchArrow();
   }, []);
 
   useEffect(() => {
-    const fetchItems = async () => {
+    const fetchCast = async () => {
       const resultCast = await axios.get(
         `https://api.tvmaze.com/shows/4/cast`
       );
       console.log(resultCast.data);
       setCast(resultCast.data);
-      setIsLoading(false);
     };
-    fetchItems();
+    fetchCast();
   }, []);
 
   return (
-    <div className="App">
+    <Box p={20}>
       <MainPage arrow={arrow} isLoading={isLoading} cast={cast} />
-    </div>
+    </Box>
   );
 }
 
