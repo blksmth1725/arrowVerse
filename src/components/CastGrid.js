@@ -2,17 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Box, Grid } from "@chakra-ui/layout";
 import { Heading } from "@chakra-ui/layout";
+
 import CastMember from "./CastMember";
 
 const CastGrid = () => {
   const [cast, setCast] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   const filteredCast = [
     ...new Map(
       cast.map((castMember) => [castMember.person.id, castMember])
     ).values(),
   ];
+
+  console.log(filteredCast);
 
   useEffect(() => {
     const fetchCast = async () => {
@@ -21,7 +23,6 @@ const CastGrid = () => {
       );
       console.log(resultCast.data);
       setCast(resultCast.data);
-      setIsLoading(false);
     };
     fetchCast();
   }, []);
@@ -31,7 +32,10 @@ const CastGrid = () => {
       <Heading>Cast Members</Heading>
       <Grid templateColumns="repeat(4,1fr)" gap={4}>
         {filteredCast.map((castMember) => (
-          <CastMember castMember={castMember} isLoading={isLoading} />
+          <CastMember
+            key={castMember.person.id}
+            castMember={castMember}
+          />
         ))}
       </Grid>
     </Box>

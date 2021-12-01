@@ -4,8 +4,7 @@ import { Link, Text } from "@chakra-ui/layout";
 
 const CastMember = ({ castMember }) => {
   return (
-    <Box key={castMember.person.id}>
-      <Text>{castMember.person.id}</Text>
+    <Box>
       <Link href={`/castmember/${castMember.person.id}`}>
         <Text>{castMember.person.name}</Text>
       </Link>

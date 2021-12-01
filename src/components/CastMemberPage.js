@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Box } from "@chakra-ui/layout";
-import { Link, Text } from "@chakra-ui/layout";
+import { Box, Flex, Grid } from "@chakra-ui/layout";
+import { Heading, Text } from "@chakra-ui/layout";
+import { Image } from "@chakra-ui/image";
 import { isEmpty } from "../utils/helpers";
 import { useParams } from "react-router";
 
@@ -21,15 +22,15 @@ const CastMember = () => {
       fetchCastMemeber();
     }
   }, [memberId]);
+
   return isEmpty(castMember) ? (
     <Text>LOADING...</Text>
   ) : (
-    <Box key={castMember.id}>
-      <Text>{castMember.id}</Text>
-      <Link href={castMember.url}>
-        <Text>{castMember.name}</Text>
-      </Link>
-    </Box>
+    <Flex align="center" justify="center">
+      <Box w="480px" rounded={42} overflow="hidden">
+        <Image src={castMember.image.original} />
+      </Box>
+    </Flex>
   );
 };
 

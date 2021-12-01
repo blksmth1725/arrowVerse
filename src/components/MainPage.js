@@ -22,6 +22,12 @@ const MainPage = ({ cast }) => {
     fetchArrow();
   }, []);
 
+  function removeTags(str) {
+    if (str === null || str === "") return false;
+    else str = str.toString();
+    return str.replace(/(<([^>]+)>)/gi, "");
+  }
+
   return isLoading ? (
     <Heading>Loading...</Heading>
   ) : (
@@ -52,7 +58,7 @@ const MainPage = ({ cast }) => {
           </Box>
           <Heading>Summary</Heading>
           <Text letterSpacing="wider" w={900}>
-            {arrow.summary}
+            {removeTags(arrow.summary)}
           </Text>
           <CastGrid />
         </Box>
