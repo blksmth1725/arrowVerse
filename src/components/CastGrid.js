@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Box, Flex, Grid, Link } from "@chakra-ui/layout";
-import { Heading, Text } from "@chakra-ui/layout";
+import { Box, Grid } from "@chakra-ui/layout";
+import { Heading } from "@chakra-ui/layout";
+import CastMember from "./CastMember";
 
 const CastGrid = () => {
   const [cast, setCast] = useState([]);
@@ -30,11 +31,7 @@ const CastGrid = () => {
       <Heading>Cast Members</Heading>
       <Grid templateColumns="repeat(4,1fr)" gap={4}>
         {filteredCast.map((castMember) => (
-          <Box key={castMember.person.id}>
-            <Link href={castMember.person.url}>
-              <Text>{castMember.person.name}</Text>
-            </Link>
-          </Box>
+          <CastMember castMember={castMember} isLoading={isLoading} />
         ))}
       </Grid>
     </Box>

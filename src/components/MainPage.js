@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Box, Flex, Grid, Link } from "@chakra-ui/layout";
+import { Box, Flex } from "@chakra-ui/layout";
 import { Heading, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import { Spacer } from "@chakra-ui/layout";

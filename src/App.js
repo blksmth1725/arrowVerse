@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import MainPage from "./components/MainPage";
-import { Box } from "@chakra-ui/layout";
-
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
+  Routes,
 } from "react-router-dom";
+import { Box } from "@chakra-ui/layout";
+
+import MainPage from "./components/MainPage";
+import CastMemberPage from "./components/CastMemberPage";
 
 function App() {
   return (
-    <Box p={20}>
-      <MainPage />
-    </Box>
+    <Router>
+      <Box p={20}>
+        <Routes>
+          <Route exact path="/" element={<MainPage />} />
+          <Route
+            path="/castmember/:memberId"
+            element={<CastMemberPage />}
+          />
+        </Routes>
+      </Box>
+    </Router>
   );
 }
 
