@@ -1,16 +1,30 @@
 import React from "react";
-import { Box } from "@chakra-ui/layout";
+import { Box, Flex } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
+import { Heading, Text } from "@chakra-ui/layout";
+import { Spacer } from "@chakra-ui/layout";
 
 const MainPage = ({ arrow, isLoading }) => {
   return isLoading ? (
-    <h1>Loading...</h1>
+    <Heading>Loading...</Heading>
   ) : (
-    <Box>
-      <h1>{arrow.name}</h1>
-      <Box boxSize="sm">
-        <Image src={arrow.image.original} />
-      </Box>
+    <Box p={24}>
+      <Heading>{arrow.name}</Heading>
+      <Flex>
+        <Box boxSize="md">
+          <Image src={arrow.image.original} />
+          <Text>Type: {arrow.type}</Text>
+        </Box>
+        <Spacer />
+        <Box>
+          <Box>
+            <Text>Date Premiered: {arrow.premiered}</Text>
+            <Text>Date Ended: {arrow.ended}</Text>
+          </Box>
+          <Heading>Summary</Heading>
+          <Text w={96}>{arrow.summary}</Text>
+        </Box>
+      </Flex>
     </Box>
   );
 };
