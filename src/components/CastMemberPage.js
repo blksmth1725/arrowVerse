@@ -5,7 +5,6 @@ import { Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import { isEmpty } from "../utils/helpers";
 import { useParams } from "react-router";
-import { Button } from "@chakra-ui/button";
 
 const CastMember = () => {
   const [castMember, setCastMember] = useState({});
@@ -27,7 +26,7 @@ const CastMember = () => {
   return isEmpty(castMember) ? (
     <Text>LOADING...</Text>
   ) : (
-    <Flex pl={20} pr={20} align="center" justify="center">
+    <Flex pt={20} pl={20} pr={20} align="center" justify="center">
       <Box rounded={42} overflow="hidden">
         <Image
           src={castMember.image.original}
