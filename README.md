@@ -1,7 +1,5 @@
 # Arrow
 
-This project was designed to test my ability to work with API data
-
 ## Available Scripts
 
 In the project directory, you can run (after cloning repo):
@@ -30,4 +28,6 @@ Button component wrapped in Link (ChakraUi) thar navigates to list of show episo
 
 Successfully deployed to Heroku
 
-Visit: https://arrow-verse.herokuapp.com/
+### For Production Visit:
+
+## `https://arrow-verse.herokuapp.com/`
