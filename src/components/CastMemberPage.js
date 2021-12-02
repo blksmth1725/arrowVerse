@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Box, Flex, Grid, Spacer } from "@chakra-ui/layout";
+import { Box, Divider, Flex, Grid } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import { isEmpty } from "../utils/helpers";
@@ -26,7 +26,7 @@ const CastMember = () => {
   return isEmpty(castMember) ? (
     <Text>LOADING...</Text>
   ) : (
-    <Flex pt={20} pl={20} pr={20} align="center" justify="center">
+    <Flex pt={20} align="center" justify="center">
       <Box rounded={42} overflow="hidden">
         <Image
           src={castMember.image.original}
@@ -35,7 +35,12 @@ const CastMember = () => {
           objectFit="cover"
         />
       </Box>
-      <Spacer />
+      <Divider
+        orientation="vertical"
+        color="highlight"
+        w={10}
+        m={20}
+      />
       <Box
         w="480px"
         h="82vh"
@@ -44,11 +49,11 @@ const CastMember = () => {
         bg="gray.600"
       >
         <Grid
-          mt={16}
+          mt={28}
           ml={8}
           mr={8}
           templateRows="repeat(4, 1fr)"
-          gap={12}
+          gap={20}
           justifyContent="center"
           alignItems="center"
         >
@@ -60,7 +65,7 @@ const CastMember = () => {
             <Text fontSize={24} fontWeight="semibold">
               Name
             </Text>
-            <Text fontSize={28} fontWeight="light">
+            <Text color="highlight" fontSize={28} fontWeight="light">
               {castMember.name}
             </Text>
           </Flex>
@@ -72,7 +77,7 @@ const CastMember = () => {
             <Text fontSize={24} fontWeight="semibold">
               Country
             </Text>
-            <Text fontSize={28} fontWeight="light">
+            <Text color="highlight" fontSize={28} fontWeight="light">
               {castMember.country.name}
             </Text>
           </Flex>
@@ -84,7 +89,7 @@ const CastMember = () => {
             <Text fontSize={24} fontWeight="semibold">
               Birthday
             </Text>
-            <Text fontSize={28} fontWeight="light">
+            <Text color="highlight" fontSize={28} fontWeight="light">
               {castMember.birthday}
             </Text>
           </Flex>
@@ -96,7 +101,7 @@ const CastMember = () => {
             <Text fontSize={24} fontWeight="semibold">
               Gender
             </Text>
-            <Text fontSize={28} fontWeight="light">
+            <Text color="highlight" fontSize={28} fontWeight="light">
               {castMember.gender}
             </Text>
           </Flex>

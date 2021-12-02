@@ -14,6 +14,7 @@ const CastGrid = () => {
         `https://api.tvmaze.com/shows/4/cast`
       );
       setCast(resultCast.data);
+      console.log(resultCast.data);
     };
     fetchCast();
   }, []);
