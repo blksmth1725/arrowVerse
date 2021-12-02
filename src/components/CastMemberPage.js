@@ -131,7 +131,7 @@ const CastMember = () => {
               justifyContent="center"
               alignItems="center"
             >
-              <Text fontSize={24} fontWeight="semibold">
+              <Text color="white" fontSize={24} fontWeight="semibold">
                 Gender
               </Text>
               <Text
