@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Box, Divider, Flex } from "@chakra-ui/layout";
+import { CSVLink } from "react-csv";
+import { Box, Flex } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import { useParams } from "react-router";
@@ -44,7 +45,17 @@ const CastMember = () => {
     }
   }, [memberId, state, fetchData]);
 
+  const headers = [
+    { label: "Name", key: "name" },
+    // { label: "Country", key: `${castMember.country.name}` },
+    { label: "Birthday", key: "birthday" },
+    { label: "Gender", key: "gender" },
+  ];
+
+  const data = [castMember];
+
   console.log("BLKSMTH: characters", characters);
+  console.log("BLKSMTH: castMember", [castMember]);
 
   return isEmpty(castMember) || !characters.length ? (
     <Text>LOADING...</Text>
@@ -142,7 +153,11 @@ const CastMember = () => {
                 {castMember.gender}
               </Text>
             </Flex>
+            <CSVLink data={data} headers={headers}>
+              Download me
+            </CSVLink>
           </Flex>
+          ;
         </Box>
       </Flex>
     </Flex>

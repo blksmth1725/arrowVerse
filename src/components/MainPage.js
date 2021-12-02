@@ -56,9 +56,9 @@ const MainPage = () => {
 
       {/* Summary Container */}
       <Flex>
-        <Box pt={14} h={96} bg="gray.600">
+        <Box pt={14} h="402px" bg="gray.600">
           <Text
-            mb={5}
+            mb={8}
             pl={10}
             color="highlight"
             fontSize={26}
