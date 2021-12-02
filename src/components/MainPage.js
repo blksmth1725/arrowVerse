@@ -84,6 +84,7 @@ const MainPage = () => {
                 Type:
               </Text>
               <Text
+                color="white"
                 opacity="70%"
                 ml={3}
                 mr={10}
@@ -105,6 +106,7 @@ const MainPage = () => {
               {arrow.genres.map((genre, index, arr) => (
                 <Flex>
                   <Text
+                    color="white"
                     opacity="70%"
                     ml={3}
                     fontSize={18}
@@ -125,7 +127,12 @@ const MainPage = () => {
               >
                 Date Premiered:
               </Text>
-              <Text opacity="70%" fontSize={18} fontWeight="light">
+              <Text
+                color="white"
+                opacity="70%"
+                fontSize={18}
+                fontWeight="light"
+              >
                 {arrow.premiered}
               </Text>
             </Flex>
@@ -139,7 +146,12 @@ const MainPage = () => {
               >
                 Date Ended:
               </Text>
-              <Text opacity="70%" fontSize={18} fontWeight="light">
+              <Text
+                color="white"
+                opacity="70%"
+                fontSize={18}
+                fontWeight="light"
+              >
                 {arrow.ended}
               </Text>
             </Flex>
