@@ -13,6 +13,7 @@ import {
   getPersonsCharacters,
 } from "../utils/helpers";
 import { fetchCast } from "../api";
+import { Button } from "@chakra-ui/button";
 
 const CastMember = () => {
   const { memberId } = useParams();
@@ -47,7 +48,7 @@ const CastMember = () => {
 
   const headers = [
     { label: "Name", key: "name" },
-    // { label: "Country", key: `${castMember.country.name}` },
+    { label: "Country", key: "country" },
     { label: "Birthday", key: "birthday" },
     { label: "Gender", key: "gender" },
   ];
@@ -84,7 +85,8 @@ const CastMember = () => {
           bg="gray.600"
         >
           <Flex
-            h="100%"
+            mt={10}
+            h="80%"
             direction="column"
             justifyContent="space-evenly"
             alignItems="center"
@@ -153,11 +155,20 @@ const CastMember = () => {
                 {castMember.gender}
               </Text>
             </Flex>
+          </Flex>
+          <Flex justify="center">
             <CSVLink data={data} headers={headers}>
-              Download me
+              <Button pb={4} bg="highlight" h={36} w="500px">
+                <Text
+                  color="white"
+                  fontWeight="semibold"
+                  fontSize={24}
+                >
+                  Download my Info
+                </Text>
+              </Button>
             </CSVLink>
           </Flex>
-          ;
         </Box>
       </Flex>
     </Flex>
