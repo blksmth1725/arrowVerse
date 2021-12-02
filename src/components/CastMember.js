@@ -9,7 +9,9 @@ const CastMember = ({ castMember }) => {
       <Flex justify="center" align="center">
         <Link href={`/castmember/${castMember.person.id}`}>
           <Button bg="highlight">
-            <Text fontSize={18}>{castMember.person.name}</Text>
+            <Text color="white" fontSize={18}>
+              {castMember.person.name}
+            </Text>
           </Button>
         </Link>
       </Flex>

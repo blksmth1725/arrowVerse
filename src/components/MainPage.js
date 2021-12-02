@@ -45,11 +45,12 @@ const MainPage = () => {
         />
         <Flex justify="center" align="center" pb={20}>
           <Text
+            color="white"
             className="top-left"
             fontWeight="semibold"
             fontSize={96}
           >
-            Arrow
+            {arrow.name}
           </Text>
         </Flex>
       </Box>
@@ -67,7 +68,7 @@ const MainPage = () => {
             Summary
           </Text>
           <Box w="100%" pl={10} pr={10}>
-            <Text letterSpacing="wider" fontSize={16}>
+            <Text color="white" letterSpacing="wider" fontSize={16}>
               {removeTags(arrow.summary)}
             </Text>
           </Box>
