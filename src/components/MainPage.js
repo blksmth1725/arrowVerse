@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Box, Divider, Flex } from "@chakra-ui/layout";
-import { Heading, Text, Link } from "@chakra-ui/layout";
+import { Box, Flex } from "@chakra-ui/layout";
+import { Heading, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
-import { Spacer } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/button";
 import CastGrid from "./CastGrid";
 
 const MainPage = () => {

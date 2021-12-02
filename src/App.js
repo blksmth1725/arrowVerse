@@ -5,7 +5,6 @@ import {
   Routes,
 } from "react-router-dom";
 import "./App.css";
-import { Box } from "@chakra-ui/layout";
 
 import MainPage from "./components/MainPage";
 import CastMemberPage from "./components/CastMemberPage";
