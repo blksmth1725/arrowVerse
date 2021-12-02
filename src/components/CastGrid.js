@@ -29,7 +29,7 @@ const CastGrid = () => {
   return (
     <Box>
       <Flex justify="center" align="center">
-        <Text fontSize={40} fontWeight="semibold">
+        <Text mb={14} fontSize={40} fontWeight="semibold">
           Cast
         </Text>
       </Flex>

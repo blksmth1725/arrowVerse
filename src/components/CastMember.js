@@ -8,7 +8,7 @@ const CastMember = ({ castMember }) => {
     <Box>
       <Flex justify="center" align="center">
         <Link href={`/castmember/${castMember.person.id}`}>
-          <Button bg="highlight">
+          <Button bg="highlight" w="200px">
             <Text color="white" fontSize={18}>
               {castMember.person.name}
             </Text>
