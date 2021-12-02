@@ -8,7 +8,8 @@ In the project directory, you can run (after cloning repo):
 
 ### `npm run start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Future Components
@@ -17,7 +18,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Button component wrapped in Link (ChakraUi) that navigates to respective cast members character
 
-### `Links to show episode lisr`
+As of now the applications successfully logs the castMemebers character => will work on rendering data
+
+### `Links to show episode list`
 
 Button component wrapped in Link (ChakraUi) thar navigates to list of show episodes
 
@@ -26,3 +29,5 @@ Button component wrapped in Link (ChakraUi) thar navigates to list of show episo
 ### `Heroku`
 
 Using Heroku to deliver a production grade app
+
+- Successfully deployed to heroku. However, Heroku only deploys static pages at the free tier lvl \*
