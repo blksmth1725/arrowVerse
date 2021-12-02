@@ -32,21 +32,54 @@ const MainPage = ({ cast }) => {
     <Heading>Loading...</Heading>
   ) : (
     <Box>
-      <Heading>{arrow.name}</Heading>
-
+      <Flex justify="center" align="center" pb={20}>
+        <Text fontWeight="semibold" fontSize={80}>
+          Arrow
+        </Text>
+      </Flex>
+      <Box h="600px" rounded={42} overflow="hidden">
+        <Image
+          alt="Arrow Cover"
+          src={arrow.image.original}
+          objectFit="contain"
+        />
+      </Box>
       <Flex>
-        <Box boxSize="md">
-          <Image alt="Arrow Cover" src={arrow.image.original} />
-          <Spacer />
-          <Text>Type: {arrow.type}</Text>
-          <Box mt={4} bg="tomato" s={3}>
-            <Flex>
-              Genre:{" "}
-              {arrow.genres.map((genre) => (
-                <Text ml={2}>{genre}</Text>
-              ))}
-            </Flex>
-          </Box>
+        <Flex>
+          <Text>Type:</Text>
+          <Text>{arrow.type}</Text>
+        </Flex>
+        <Spacer />
+        <Flex>
+          Genre:{" "}
+          {arrow.genres.map((genre) => (
+            <Text ml={2}>{genre}</Text>
+          ))}
+        </Flex>
+        <Spacer />
+        <Flex>
+          <Text>Date Premiered: {arrow.premiered}</Text>
+          <Text>Date Ended: {arrow.ended}</Text>
+        </Flex>
+      </Flex>
+      {/* <Heading>{arrow.name}</Heading>
+
+      <Box h="500px" w="300px" rounded={42} overflow="hidden">
+        <Image
+          alt="Arrow Cover"
+          src={arrow.image.original}
+          objectFit="fill"
+        />
+      </Box>
+      <Flex>
+        <Text>Type: {arrow.type}</Text>
+        <Box>
+          <Flex>
+            Genre:{" "}
+            {arrow.genres.map((genre) => (
+              <Text ml={2}>{genre}</Text>
+            ))}
+          </Flex>
         </Box>
 
         <Spacer />
@@ -60,9 +93,10 @@ const MainPage = ({ cast }) => {
           <Text letterSpacing="wider" w={900}>
             {removeTags(arrow.summary)}
           </Text>
-          <CastGrid />
         </Box>
       </Flex>
+      <CastGrid />
+      */}
     </Box>
   );
 };
