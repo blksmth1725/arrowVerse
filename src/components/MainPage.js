@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Box, Flex } from "@chakra-ui/layout";
 import { Heading, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
+
+import { fetchShow } from "../api";
 import CastGrid from "./CastGrid";
 
 const MainPage = () => {
@@ -10,15 +11,13 @@ const MainPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchArrow = async () => {
-      const resultArrow = await axios.get(
-        `https://api.tvmaze.com/singlesearch/shows?q=arrow`
-      );
-      console.log(resultArrow.data);
-      setArrow(resultArrow.data);
+    const fetchData = async () => {
+      const data = await fetchShow();
+      setArrow(data);
       setIsLoading(false);
     };
-    fetchArrow();
+
+    fetchData();
   }, []);
 
   function removeTags(str) {
@@ -132,6 +131,7 @@ const MainPage = () => {
                 opacity="70%"
                 fontSize={18}
                 fontWeight="light"
+                ml={3}
               >
                 {arrow.premiered}
               </Text>
@@ -147,6 +147,7 @@ const MainPage = () => {
                 Date Ended:
               </Text>
               <Text
+                ml={3}
                 color="white"
                 opacity="70%"
                 fontSize={18}

@@ -1,29 +1,52 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Box, Divider, Flex, Grid } from "@chakra-ui/layout";
+import React, { useState, useEffect, useCallback } from "react";
+import { Box, Divider, Flex } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
-import { isEmpty } from "../utils/helpers";
 import { useParams } from "react-router";
+import { useLocation } from "react-router-dom";
+
+import {
+  isEmpty,
+  getPeopleFromCast,
+  getCharactersFromCast,
+  getPersonsCharacters,
+} from "../utils/helpers";
+import { fetchCast } from "../api";
 
 const CastMember = () => {
-  const [castMember, setCastMember] = useState({});
   const { memberId } = useParams();
+  const { state } = useLocation();
+  const [castMember, setCastMember] = useState({});
+  const [characters, setCharacters] = useState([]);
 
-  useEffect(() => {
-    const fetchCastMemeber = async () => {
-      const resultCastMember = await axios.get(
-        `https://api.tvmaze.com/people/${memberId}`
-      );
-      console.log(resultCastMember.data);
-      setCastMember(resultCastMember.data);
-    };
-    if (memberId) {
-      fetchCastMemeber();
-    }
+  const fetchData = useCallback(async () => {
+    const cast = await fetchCast();
+    const allCharacters = getCharactersFromCast(cast);
+    const person = getPeopleFromCast(cast).find(
+      (person) => person.id === Number(memberId)
+    );
+
+    const personsCharacters = getPersonsCharacters({
+      id: person.id,
+      characters: allCharacters,
+    });
+
+    setCastMember(person);
+    setCharacters(personsCharacters);
   }, [memberId]);
 
-  return isEmpty(castMember) ? (
+  useEffect(() => {
+    if (state && state.castMember && state.characters) {
+      setCastMember(state.castMember);
+      setCharacters(state.characters);
+    } else {
+      fetchData();
+    }
+  }, [memberId, state, fetchData]);
+
+  console.log("BLKSMTH: characters", characters);
+
+  return isEmpty(castMember) || !characters.length ? (
     <Text>LOADING...</Text>
   ) : (
     <Flex pt={20} align="center" justify="center">
@@ -37,7 +60,7 @@ const CastMember = () => {
       </Box>
       <Divider
         orientation="vertical"
-        color="highlight"
+        colorScheme="white"
         w={10}
         m={20}
       />
@@ -48,13 +71,10 @@ const CastMember = () => {
         overflow="hidden"
         bg="gray.600"
       >
-        <Grid
-          mt={28}
-          ml={8}
-          mr={8}
-          templateRows="repeat(4, 1fr)"
-          gap={20}
-          justifyContent="center"
+        <Flex
+          h="100%"
+          direction="column"
+          justifyContent="space-evenly"
           alignItems="center"
         >
           <Flex
@@ -105,7 +125,7 @@ const CastMember = () => {
               {castMember.gender}
             </Text>
           </Flex>
-        </Grid>
+        </Flex>
       </Box>
     </Flex>
   );

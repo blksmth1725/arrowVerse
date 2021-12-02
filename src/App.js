@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPage />} />
         <Route
           path="/castmember/:memberId"
           element={<CastMemberPage />}

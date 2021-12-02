@@ -1,31 +1,33 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect, useMemo } from "react";
 import { Box, Flex, Grid } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
 
+import { fetchCast } from "../api";
+import {
+  getPeopleFromCast,
+  getCharactersFromCast,
+  getPersonsCharacters,
+} from "../utils/helpers";
 import CastMember from "./CastMember";
 
 const CastGrid = () => {
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
-    const fetchCast = async () => {
-      const resultCast = await axios.get(
-        `https://api.tvmaze.com/shows/4/cast`
-      );
-      setCast(resultCast.data);
-      console.log(resultCast.data);
+    const fetchData = async () => {
+      const data = await fetchCast();
+      setCast(data);
     };
-    fetchCast();
+
+    fetchData();
   }, []);
 
-  const filteredCast = [
-    ...new Map(
-      cast.map((castMember) => [castMember.person.id, castMember])
-    ).values(),
-  ];
+  const people = useMemo(() => getPeopleFromCast(cast), [cast]);
 
-  console.log(filteredCast);
+  const characters = useMemo(
+    () => getCharactersFromCast(cast),
+    [cast]
+  );
 
   return (
     <Box>
@@ -40,12 +42,20 @@ const CastGrid = () => {
         </Text>
       </Flex>
       <Grid templateColumns="repeat(3,1fr)" gap={4}>
-        {filteredCast.map((castMember) => (
-          <CastMember
-            key={castMember.person.id}
-            castMember={castMember}
-          />
-        ))}
+        {people.map((person) => {
+          const personsCharacters = getPersonsCharacters({
+            id: person.id,
+            characters,
+          });
+
+          return (
+            <CastMember
+              key={person.id}
+              castMember={person}
+              characters={personsCharacters}
+            />
+          );
+        })}
       </Grid>
     </Box>
   );
