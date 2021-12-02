@@ -34,7 +34,7 @@ const MainPage = () => {
       {/* Image Conatainer */}
       <Box
         className="cointainer"
-        h="440px"
+        h="620px"
         w="100%"
         overflow="hidden"
       >
