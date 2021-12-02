@@ -49,7 +49,7 @@ const CastMember = () => {
   return isEmpty(castMember) || !characters.length ? (
     <Text>LOADING...</Text>
   ) : (
-    <Flex pt={20} align="center" justify="center">
+    <Flex bg="background" pt={20} align="center" justify="center">
       <Box rounded={42} overflow="hidden">
         <Image
           src={castMember.image.original}
@@ -82,7 +82,7 @@ const CastMember = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Text fontSize={24} fontWeight="semibold">
+            <Text color="white" fontSize={24} fontWeight="semibold">
               Name
             </Text>
             <Text color="highlight" fontSize={28} fontWeight="light">
@@ -94,7 +94,7 @@ const CastMember = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Text fontSize={24} fontWeight="semibold">
+            <Text color="white" fontSize={24} fontWeight="semibold">
               Country
             </Text>
             <Text color="highlight" fontSize={28} fontWeight="light">
@@ -106,7 +106,7 @@ const CastMember = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Text fontSize={24} fontWeight="semibold">
+            <Text color="white" fontSize={24} fontWeight="semibold">
               Birthday
             </Text>
             <Text color="highlight" fontSize={28} fontWeight="light">

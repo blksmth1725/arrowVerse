@@ -26,8 +26,8 @@ Button component wrapped in Link (ChakraUi) thar navigates to list of show episo
 
 ## Deployment
 
-### `Heroku`
+## `Heroku`
 
-Using Heroku to deliver a production grade app
+Successfully deployed to Heroku
 
-- Successfully deployed to heroku. However, Heroku only deploys static pages at the free tier lvl \*
+Visit: https://arrow-verse.herokuapp.com/

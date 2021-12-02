@@ -8,6 +8,7 @@ export const appTheme = extendTheme({
   colors: {
     black: "#000",
     white: "#fff",
+    background: "#1b202b",
     primary: "#2D3748",
     secondary: "#2B6CB0",
     light: "#f4f4f4",
