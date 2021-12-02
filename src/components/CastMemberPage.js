@@ -49,7 +49,13 @@ const CastMember = () => {
   return isEmpty(castMember) || !characters.length ? (
     <Text>LOADING...</Text>
   ) : (
-    <Flex bg="background" pt={20} align="center" justify="center">
+    <Flex
+      bg="background"
+      h="100%"
+      pt={20}
+      align="center"
+      justify="center"
+    >
       <Box rounded={42} overflow="hidden">
         <Image
           src={castMember.image.original}
