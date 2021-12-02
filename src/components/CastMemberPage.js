@@ -51,88 +51,100 @@ const CastMember = () => {
   ) : (
     <Flex
       bg="background"
-      h="100%"
+      h="100vh"
       pt={20}
       align="center"
       justify="center"
     >
-      <Box rounded={42} overflow="hidden">
-        <Image
-          src={castMember.image.original}
-          h="82vh"
+      <Flex w="100%" justify="space-evenly" mb={20}>
+        <Box rounded={42} overflow="hidden">
+          <Image
+            src={castMember.image.original}
+            h="82vh"
+            w="480px"
+            objectFit="cover"
+          />
+        </Box>
+        <Box
           w="480px"
-          objectFit="cover"
-        />
-      </Box>
-      <Divider
-        orientation="vertical"
-        colorScheme="white"
-        w={10}
-        m={20}
-      />
-      <Box
-        w="480px"
-        h="82vh"
-        rounded={42}
-        overflow="hidden"
-        bg="gray.600"
-      >
-        <Flex
-          h="100%"
-          direction="column"
-          justifyContent="space-evenly"
-          alignItems="center"
+          h="82vh"
+          rounded={42}
+          overflow="hidden"
+          bg="gray.600"
         >
           <Flex
+            h="100%"
             direction="column"
-            justifyContent="center"
+            justifyContent="space-evenly"
             alignItems="center"
           >
-            <Text color="white" fontSize={24} fontWeight="semibold">
-              Name
-            </Text>
-            <Text color="highlight" fontSize={28} fontWeight="light">
-              {castMember.name}
-            </Text>
+            <Flex
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text color="white" fontSize={24} fontWeight="semibold">
+                Name
+              </Text>
+              <Text
+                color="highlight"
+                fontSize={28}
+                fontWeight="light"
+              >
+                {castMember.name}
+              </Text>
+            </Flex>
+            <Flex
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text color="white" fontSize={24} fontWeight="semibold">
+                Country
+              </Text>
+              <Text
+                color="highlight"
+                fontSize={28}
+                fontWeight="light"
+              >
+                {castMember.country.name}
+              </Text>
+            </Flex>
+            <Flex
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text color="white" fontSize={24} fontWeight="semibold">
+                Birthday
+              </Text>
+              <Text
+                color="highlight"
+                fontSize={28}
+                fontWeight="light"
+              >
+                {castMember.birthday}
+              </Text>
+            </Flex>
+            <Flex
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text fontSize={24} fontWeight="semibold">
+                Gender
+              </Text>
+              <Text
+                color="highlight"
+                fontSize={28}
+                fontWeight="light"
+              >
+                {castMember.gender}
+              </Text>
+            </Flex>
           </Flex>
-          <Flex
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Text color="white" fontSize={24} fontWeight="semibold">
-              Country
-            </Text>
-            <Text color="highlight" fontSize={28} fontWeight="light">
-              {castMember.country.name}
-            </Text>
-          </Flex>
-          <Flex
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Text color="white" fontSize={24} fontWeight="semibold">
-              Birthday
-            </Text>
-            <Text color="highlight" fontSize={28} fontWeight="light">
-              {castMember.birthday}
-            </Text>
-          </Flex>
-          <Flex
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Text fontSize={24} fontWeight="semibold">
-              Gender
-            </Text>
-            <Text color="highlight" fontSize={28} fontWeight="light">
-              {castMember.gender}
-            </Text>
-          </Flex>
-        </Flex>
-      </Box>
+        </Box>
+      </Flex>
     </Flex>
   );
 };
