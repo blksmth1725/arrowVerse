@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Box, Grid } from "@chakra-ui/layout";
-import { Heading } from "@chakra-ui/layout";
+import { Box, Flex, Grid } from "@chakra-ui/layout";
+import { Text } from "@chakra-ui/layout";
 
 import CastMember from "./CastMember";
 
 const CastGrid = () => {
   const [cast, setCast] = useState([]);
+
+  useEffect(() => {
+    const fetchCast = async () => {
+      const resultCast = await axios.get(
+        `https://api.tvmaze.com/shows/4/cast`
+      );
+      setCast(resultCast.data);
+    };
+    fetchCast();
+  }, []);
 
   const filteredCast = [
     ...new Map(
@@ -16,20 +26,13 @@ const CastGrid = () => {
 
   console.log(filteredCast);
 
-  useEffect(() => {
-    const fetchCast = async () => {
-      const resultCast = await axios.get(
-        `https://api.tvmaze.com/shows/4/cast`
-      );
-      console.log(resultCast.data);
-      setCast(resultCast.data);
-    };
-    fetchCast();
-  }, []);
-
   return (
     <Box>
-      <Heading>Cast Members</Heading>
+      <Flex justify="center" align="center">
+        <Text fontSize={40} fontWeight="semibold">
+          Cast
+        </Text>
+      </Flex>
       <Grid templateColumns="repeat(3,1fr)" gap={4}>
         {filteredCast.map((castMember) => (
           <CastMember

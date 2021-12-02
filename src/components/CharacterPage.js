@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Box, Flex, Grid, Link, Spacer } from "@chakra-ui/layout";
+import { Box, Flex, Grid, Spacer } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import { isEmpty } from "../utils/helpers";
 import { useParams } from "react-router";
-import { Button } from "@chakra-ui/button";
 
-const CastMember = () => {
+const CharacterPage = () => {
   const [castMember, setCastMember] = useState({});
   const { memberId } = useParams();
 
@@ -49,7 +48,7 @@ const CastMember = () => {
           ml={8}
           mr={8}
           templateRows="repeat(4, 1fr)"
-          gap={12}
+          gap={20}
           justifyContent="center"
           alignItems="center"
         >
@@ -107,4 +106,4 @@ const CastMember = () => {
   );
 };
 
-export default CastMember;
+export default CharacterPage;

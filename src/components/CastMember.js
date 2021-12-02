@@ -8,8 +8,8 @@ const CastMember = ({ castMember }) => {
     <Box>
       <Flex justify="center" align="center">
         <Link href={`/castmember/${castMember.person.id}`}>
-          <Button>
-            <Text fontSize={18}>{castMember.person.name}</Text>
+          <Button bg="highlight">
+            <Text fontSize={10}>{castMember.person.name}</Text>
           </Button>
         </Link>
       </Flex>
