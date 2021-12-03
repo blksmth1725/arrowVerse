@@ -1,6 +1,15 @@
 import React from "react";
 import { Image } from "@chakra-ui/image";
-import { Box, Flex, Text } from "@chakra-ui/layout";
+import {
+  Box,
+  Flex,
+  Text,
+  Stack,
+  Badge,
+  Spacer,
+  Grid,
+} from "@chakra-ui/layout";
+import { Button } from "@chakra-ui/button";
 
 import { removeTags } from "../utils/helpers";
 
@@ -14,33 +23,42 @@ const Episode = ({
   summary,
 }) => {
   return (
-    <Box>
-      <Flex pl={20} pr={20} pt={8} pb={8} direction="column">
-        <Box bg="gray.600" rounded={20} overflow="hidden">
-          <Flex justify="center" align="start">
-            <Flex bg="highlight" direction="column">
-              <Text
-                color="white"
-                fontSize={18}
-                fontWeight="semibold"
-                mb={3}
-              >
+    <Flex justify="center" align="center">
+      <Box
+        w="300px"
+        rounded="20px"
+        bg="gray.600"
+        overflow="hidden"
+        mt={10}
+      >
+        <Image src={img} alt="Card Image" objectFit="cover"></Image>
+        <Box p={5}>
+          <Stack align="center">
+            <Badge
+              variant="solid"
+              bg="highlight"
+              rounded="full"
+              h={8}
+              w="80%"
+              align="center"
+            >
+              <Text color="white" mt={2}>
                 {name}
               </Text>
-              <Image src={img} h={44} w="200px" objectFit="cover" />
-            </Flex>
-            <Box w="70%" bg="tomato">
-              <Flex direction="column" justify="center">
-                <Text fontSize={18} color="highlight">
-                  Summary
-                </Text>
-                <Text>{removeTags(summary)}</Text>
-              </Flex>
-            </Box>
+            </Badge>
+          </Stack>
+          <Flex>
+            <Text color="highlight">Date aired:</Text>
+            <Text color="white" as="h2" fontWeight="normal" my={2}>
+              {airdate}
+            </Text>
           </Flex>
+          <Text fontWeight="light">
+            A platform for students to study CSE concepts.
+          </Text>
         </Box>
-      </Flex>
-    </Box>
+      </Box>
+    </Flex>
   );
 };
 

@@ -3,8 +3,6 @@ import { Box, Flex, Grid } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
 
 import { fetchEpisodes } from "../api";
-import { objToArr, flattenJSON } from "../utils/helpers";
-import CastMember from "./CastMember";
 import Episode from "./Episode";
 import { Spinner } from "@chakra-ui/react";
 
@@ -22,17 +20,6 @@ const CastGrid = () => {
     fetchData();
   }, []);
 
-  console.log(episodes.map((x) => x));
-  console.log(episodes.map((x) => x.id));
-  console.log(episodes.map((x) => x.name));
-
-  // const people = useMemo(() => getPeopleFromCast(cast), [cast]);
-
-  // const characters = useMemo(
-  //   () => getCharactersFromCast(cast),
-  //   [cast]
-  // );
-
   return isLoading ? (
     <Spinner
       thickness="4px"
@@ -42,26 +29,40 @@ const CastGrid = () => {
     />
   ) : (
     <Box h="100vh">
-      <Flex justify="center" mt={10}>
-        <Box>
-          <Text color="white" fontSize={40} fontWeight="semibold">
-            Episodes
-          </Text>
-        </Box>
+      <Flex
+        bg="highlight"
+        justify="center"
+        align="center"
+        w="100%"
+        h={28}
+      >
+        <Text color="white" fontSize={40} fontWeight="semibold">
+          Episodes
+        </Text>
       </Flex>
-      {episodes.map((episode) => {
-        return (
-          <Episode
-            name={episode.name}
-            img={episode.image.original}
-            rating={episode.rating}
-            season={episode.season}
-            airdate={episode.airdate}
-            airtime={episode.airtime}
-            summary={episode.summary}
-          />
-        );
-      })}
+      <Grid
+        pl={28}
+        pr={28}
+        justifyContent="space-around"
+        mt={10}
+        templateColumns="repeat(2,1fr)"
+        gap={6}
+      >
+        {episodes.map((episode) => {
+          return (
+            <Episode
+              key={episode.id}
+              name={episode.name}
+              img={episode.image.original}
+              rating={episode.rating}
+              season={episode.season}
+              airdate={episode.airdate}
+              airtime={episode.airtime}
+              summary={episode.summary}
+            />
+          );
+        })}
+      </Grid>
       {/* <Flex justify="center" align="center">
         <Text
           color="white"
