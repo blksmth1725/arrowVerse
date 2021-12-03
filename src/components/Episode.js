@@ -1,17 +1,6 @@
 import React from "react";
 import { Image } from "@chakra-ui/image";
-import {
-  Box,
-  Flex,
-  Text,
-  Stack,
-  Badge,
-  Spacer,
-  Grid,
-} from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/button";
-
-import { removeTags } from "../utils/helpers";
+import { Box, Flex, Text, Stack, Badge } from "@chakra-ui/layout";
 
 const Episode = ({
   name,

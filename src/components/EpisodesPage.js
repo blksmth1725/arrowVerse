@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Flex, Grid } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
 
