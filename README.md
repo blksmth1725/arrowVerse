@@ -55,4 +55,4 @@ Successfully deployed to Heroku
 
 ## Technologies used
 
-\* Javascript
+\* React \* Javascript \* Axios \* React-Router \* React-Csv \* Express (in order to deploy on Heroku) \* ChakraUI
