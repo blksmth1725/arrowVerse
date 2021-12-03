@@ -20,7 +20,7 @@ Successfully deployed to Heroku
 
 ### `https://arrow-verse.herokuapp.com/`
 
-## Project Structure && formation
+## Project structure && formation
 
 `1`. Cleaned up boiler-plate files && folders.
 
@@ -46,4 +46,13 @@ Successfully deployed to Heroku
 
 `11-a`. Refactoring: This stage consisted of revising my code && and restructuring my folders. Created a Utils folder which contains helper.js && theme.js. Helpers.js is a file which contains functions that help optimized code recieved from API. Theme.js acts as a constants to be used in chakraUI styling.
 
-`11-b`. Refactoring: This stage consisted of revising my code && and restructuring my folders. Created Api folder which contains files that help with setting constants and axios fecthing functions for API calls
+`11-b`. Refactoring: This stage consisted of revising my code && and restructuring my folders. Created Api folder which contains files that help with setting constants and axios fecthing functions for API calls.
+
+`12`. Created EpisodePage.js which displays all avaianle show episodes (from: https://api.tvmaze.com/shows/{id}/episodes
+)
+
+`13`. Styled EpisodeCard component.
+
+## Technologies used
+
+\* Javascript
