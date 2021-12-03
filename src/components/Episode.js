@@ -27,12 +27,17 @@ const Episode = ({
       <Box
         w="300px"
         rounded="20px"
-        bg="gray.600"
+        bg="gray.800"
         overflow="hidden"
         mt={10}
       >
-        <Image src={img} alt="Card Image" objectFit="cover"></Image>
-        <Box p={5}>
+        <Image
+          h={56}
+          src={img}
+          alt="Card Image"
+          objectFit="cover"
+        ></Image>
+        <Box p={6}>
           <Stack align="center">
             <Badge
               variant="solid"
@@ -41,21 +46,65 @@ const Episode = ({
               h={8}
               w="80%"
               align="center"
+              mb={3}
             >
               <Text color="white" mt={2}>
                 {name}
               </Text>
             </Badge>
           </Stack>
-          <Flex>
-            <Text color="highlight">Date aired:</Text>
-            <Text color="white" as="h2" fontWeight="normal" my={2}>
+          <Flex my={2}>
+            <Text
+              fontWeight="semibold"
+              color="highlight"
+              pr={2}
+              my={1}
+            >
+              Date aired:
+            </Text>
+            <Text color="white" as="h2" fontWeight="light" my={1}>
               {airdate}
             </Text>
           </Flex>
-          <Text fontWeight="light">
-            A platform for students to study CSE concepts.
-          </Text>
+          <Flex my={1}>
+            <Text
+              fontWeight="semibold"
+              color="highlight"
+              pr={2}
+              my={1}
+            >
+              Air time:
+            </Text>
+            <Text color="white" as="h2" fontWeight="light" my={1}>
+              {airtime} Mins
+            </Text>
+          </Flex>
+          <Flex my={1}>
+            <Text
+              fontWeight="semibold"
+              color="highlight"
+              pr={2}
+              my={1}
+            >
+              Rating:
+            </Text>
+            <Text color="white" as="h2" fontWeight="light" my={1}>
+              {rating.average}
+            </Text>
+          </Flex>
+          <Flex my={1}>
+            <Text
+              fontWeight="semibold"
+              color="highlight"
+              pr={2}
+              my={1}
+            >
+              Season:
+            </Text>
+            <Text color="white" as="h2" fontWeight="light" my={1}>
+              {season}
+            </Text>
+          </Flex>
         </Box>
       </Box>
     </Flex>

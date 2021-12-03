@@ -20,6 +20,12 @@ const CastGrid = () => {
     fetchData();
   }, []);
 
+  console.log(
+    episodes.map((ep) => {
+      return ep.rating.average;
+    })
+  );
+
   return isLoading ? (
     <Spinner
       thickness="4px"
@@ -28,7 +34,7 @@ const CastGrid = () => {
       size="xl"
     />
   ) : (
-    <Box h="100vh" bg="gray.600">
+    <Box h="100%" bg="gray.600">
       <Flex
         bg="highlight"
         justify="center"
