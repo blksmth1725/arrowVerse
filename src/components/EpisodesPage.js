@@ -28,7 +28,7 @@ const CastGrid = () => {
       size="xl"
     />
   ) : (
-    <Box h="100vh">
+    <Box h="100vh" bg="gray.600">
       <Flex
         bg="highlight"
         justify="center"
