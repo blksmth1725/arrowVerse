@@ -161,6 +161,10 @@ const CastMember = () => {
             </Flex>
           </Flex>
           <Flex justify="center">
+            {console.log("csv", {
+              csvHeaders,
+              data: [castMember],
+            })}
             <CSVLink data={[castMember]} headers={csvHeaders}>
               <Button pb={4} bg="highlight" h={36} w="500px">
                 <Text

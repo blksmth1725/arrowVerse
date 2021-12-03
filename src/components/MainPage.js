@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Box, Flex } from "@chakra-ui/layout";
-import { Heading, Text } from "@chakra-ui/layout";
+import { Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
+import { Spinner } from "@chakra-ui/spinner";
 
 import { fetchShow } from "../api";
 import CastGrid from "./CastGrid";
@@ -27,7 +28,14 @@ const MainPage = () => {
   }
 
   return isLoading ? (
-    <Heading>Loading...</Heading>
+    <Flex h="100vh" justify="center" align="center">
+      <Spinner
+        thickness="4px"
+        emptyColor="gray.200"
+        color="highlight"
+        size="xl"
+      />
+    </Flex>
   ) : (
     <Box>
       {/* Image Conatainer */}
