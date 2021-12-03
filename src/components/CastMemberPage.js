@@ -1,4 +1,9 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+} from "react";
 import { CSVLink } from "react-csv";
 import { Box, Flex } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
@@ -11,6 +16,8 @@ import {
   getPeopleFromCast,
   getCharactersFromCast,
   getPersonsCharacters,
+  flattenJSON,
+  getCSVHeaderData,
 } from "../utils/helpers";
 import { fetchCast } from "../api";
 import { Button } from "@chakra-ui/button";
@@ -20,6 +27,15 @@ const CastMember = () => {
   const { state } = useLocation();
   const [castMember, setCastMember] = useState({});
   const [characters, setCharacters] = useState([]);
+
+  const csvObject = useMemo(
+    () => flattenJSON(castMember),
+    [castMember]
+  );
+  const csvHeaders = useMemo(
+    () => getCSVHeaderData(csvObject),
+    [csvObject]
+  );
 
   const fetchData = useCallback(async () => {
     const cast = await fetchCast();
@@ -45,18 +61,6 @@ const CastMember = () => {
       fetchData();
     }
   }, [memberId, state, fetchData]);
-
-  const headers = [
-    { label: "Name", key: "name" },
-    { label: "Country", key: "country" },
-    { label: "Birthday", key: "birthday" },
-    { label: "Gender", key: "gender" },
-  ];
-
-  const data = [castMember];
-
-  console.log("BLKSMTH: characters", characters);
-  console.log("BLKSMTH: castMember", [castMember]);
 
   return isEmpty(castMember) || !characters.length ? (
     <Text>LOADING...</Text>
@@ -157,7 +161,7 @@ const CastMember = () => {
             </Flex>
           </Flex>
           <Flex justify="center">
-            <CSVLink data={data} headers={headers}>
+            <CSVLink data={[castMember]} headers={csvHeaders}>
               <Button pb={4} bg="highlight" h={36} w="500px">
                 <Text
                   color="white"
