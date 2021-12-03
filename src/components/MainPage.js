@@ -171,7 +171,13 @@ const MainPage = () => {
           <Flex w="100%" display="flex" justifyContent="flex-end">
             <Box h={14} w="100%">
               <Link to="/episodes">
-                <Button h="100%" ml="80%" bg="highlight" w="300px">
+                <Button
+                  color="white"
+                  h="100%"
+                  ml="80%"
+                  bg="highlight"
+                  w="300px"
+                >
                   EPISODES
                 </Button>
               </Link>

@@ -6,9 +6,11 @@ import { fetchEpisodes } from "../api";
 import { objToArr, flattenJSON } from "../utils/helpers";
 import CastMember from "./CastMember";
 import Episode from "./Episode";
+import { Spinner } from "@chakra-ui/react";
 
 const CastGrid = () => {
   const [episodes, setEpisodes] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +18,7 @@ const CastGrid = () => {
       setEpisodes(data);
     };
 
+    setIsLoading(false);
     fetchData();
   }, []);
 
@@ -30,7 +33,14 @@ const CastGrid = () => {
   //   [cast]
   // );
 
-  return (
+  return isLoading ? (
+    <Spinner
+      thickness="4px"
+      emptyColor="gray.200"
+      color="highlight"
+      size="xl"
+    />
+  ) : (
     <Box h="100vh">
       <Flex justify="center" mt={10}>
         <Box>
