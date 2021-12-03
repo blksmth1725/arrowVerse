@@ -16,3 +16,11 @@ export const fetchCast = async () => {
 
   return data;
 };
+
+export const fetchEpisodes = async () => {
+  const { data } = await api
+    .get(`/shows/${ARROW_SHOW_ID}/episodes`)
+    .catch((err) => console.log(err));
+
+  return data;
+};

@@ -2,6 +2,10 @@ export const isEmpty = (obj) => {
   return !Object.keys(obj).length;
 };
 
+export const objToArr = (obj) => {
+  return Object.keys(obj);
+};
+
 export const removeTags = (str) => {
   if (str === null || str === "") return false;
   else str = str.toString();
