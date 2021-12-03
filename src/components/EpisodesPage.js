@@ -32,12 +32,13 @@ const CastGrid = () => {
 
   return (
     <Box h="100vh">
-      <Flex>
+      <Flex justify="center" mt={10}>
         <Box>
-          <Text>Episodes</Text>
+          <Text color="white" fontSize={40} fontWeight="semibold">
+            Episodes
+          </Text>
         </Box>
       </Flex>
-
       {episodes.map((episode) => {
         return (
           <Episode

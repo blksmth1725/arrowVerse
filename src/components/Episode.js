@@ -15,23 +15,30 @@ const Episode = ({
 }) => {
   return (
     <Box>
-      <Flex p={14} direction="column" bg="gray.600">
-        <Flex>
-          <Flex direction="column" align="center">
-            <Text color="highlight" fontSize={18}>
-              {name}
-            </Text>
-            <Image src={img} h={40} w="200px" objectFit="cover" />
-          </Flex>
-          <Box w="70%" bg="tomato">
-            <Flex direction="column">
-              <Text fontSize={18} color="highlight">
-                Summary
+      <Flex pl={20} pr={20} pt={8} pb={8} direction="column">
+        <Box bg="gray.600" rounded={20} overflow="hidden">
+          <Flex justify="center" align="start">
+            <Flex bg="highlight" direction="column">
+              <Text
+                color="white"
+                fontSize={18}
+                fontWeight="semibold"
+                mb={3}
+              >
+                {name}
               </Text>
-              <Text>{removeTags(summary)}</Text>
+              <Image src={img} h={44} w="200px" objectFit="cover" />
             </Flex>
-          </Box>
-        </Flex>
+            <Box w="70%" bg="tomato">
+              <Flex direction="column" justify="center">
+                <Text fontSize={18} color="highlight">
+                  Summary
+                </Text>
+                <Text>{removeTags(summary)}</Text>
+              </Flex>
+            </Box>
+          </Flex>
+        </Box>
       </Flex>
     </Box>
   );
