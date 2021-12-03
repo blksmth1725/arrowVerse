@@ -8,6 +8,7 @@ import "./App.css";
 
 import MainPage from "./components/MainPage";
 import CastMemberPage from "./components/CastMemberPage";
+import EpisodesPage from "./components/EpisodesPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           path="/castmember/:memberId"
           element={<CastMemberPage />}
         />
+        <Route path="/episodes" element={<EpisodesPage />} />
       </Routes>
     </Router>
   );

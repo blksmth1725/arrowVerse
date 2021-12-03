@@ -166,8 +166,9 @@ const CastMember = () => {
               data: [castMember],
             })}
             <CSVLink data={[castMember]} headers={csvHeaders}>
-              <Button pb={4} bg="highlight" h={36} w="500px">
+              <Button pb={4} bg="highlight" h={32} w="500px">
                 <Text
+                  pb={4}
                   color="white"
                   fontWeight="semibold"
                   fontSize={24}

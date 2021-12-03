@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import { Box, Flex } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import { Spinner } from "@chakra-ui/spinner";
+import { Button } from "@chakra-ui/button";
 
 import { fetchShow } from "../api";
 import CastGrid from "./CastGrid";
@@ -64,7 +67,7 @@ const MainPage = () => {
 
       {/* Summary Container */}
       <Flex>
-        <Box pt={14} h="402px" bg="gray.600">
+        <Box pt={14} h="355px" bg="gray.600">
           <Text
             mb={8}
             pl={10}
@@ -81,7 +84,7 @@ const MainPage = () => {
           </Box>
 
           {/* Description Container */}
-          <Flex ml={10} mt={14}>
+          <Flex ml={10} mt={12}>
             <Flex>
               <Text
                 color="highlight"
@@ -164,6 +167,15 @@ const MainPage = () => {
                 {arrow.ended}
               </Text>
             </Flex>
+          </Flex>
+          <Flex w="100%" display="flex" justifyContent="flex-end">
+            <Box h={14} w="100%">
+              <Link to="/episodes">
+                <Button h="100%" ml="80%" bg="highlight" w="300px">
+                  EPISODES
+                </Button>
+              </Link>
+            </Box>
           </Flex>
         </Box>
       </Flex>
