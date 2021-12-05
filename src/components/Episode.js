@@ -16,7 +16,7 @@ const Episode = ({
       <Box
         w="300px"
         rounded="20px"
-        bg="gray.800"
+        bg="gray.600"
         overflow="hidden"
         mt={10}
       >

@@ -5,6 +5,7 @@ import { Text } from "@chakra-ui/layout";
 import { fetchEpisodes } from "../api";
 import Episode from "./Episode";
 import { Spinner } from "@chakra-ui/react";
+import Searchbar from "./SearchBar";
 
 const CastGrid = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -34,7 +35,7 @@ const CastGrid = () => {
       size="xl"
     />
   ) : (
-    <Box h="100%" bg="gray.600">
+    <Box h="100%" bg="gray.800">
       <Flex
         bg="highlight"
         justify="center"
@@ -46,11 +47,13 @@ const CastGrid = () => {
           Episodes
         </Text>
       </Flex>
+
+      <Searchbar />
       <Grid
         pl={28}
         pr={28}
         justifyContent="space-around"
-        mt={10}
+        mt={5}
         templateColumns="repeat(2,1fr)"
         gap={6}
       >
@@ -69,32 +72,6 @@ const CastGrid = () => {
           );
         })}
       </Grid>
-      {/* <Flex justify="center" align="center">
-        <Text
-          color="white"
-          mb={14}
-          fontSize={40}
-          fontWeight="semibold"
-        >
-          Cast
-        </Text>
-      </Flex>
-      <Grid templateColumns="repeat(3,1fr)" gap={4}>
-        {people.map((person) => {
-          const personsCharacters = getPersonsCharacters({
-            id: person.id,
-            characters,
-          });
-
-          return (
-            <CastMember
-              key={person.id}
-              castMember={person}
-              characters={personsCharacters}
-            />
-          );
-        })}
-      </Grid> */}
     </Box>
   );
 };
