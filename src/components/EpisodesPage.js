@@ -5,10 +5,10 @@ import { Text } from "@chakra-ui/layout";
 import { fetchEpisodes } from "../api";
 import Episode from "./Episode";
 import { Spinner } from "@chakra-ui/react";
-import Searchbar from "./SearchBar";
 
 const CastGrid = () => {
   const [episodes, setEpisodes] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -26,6 +26,12 @@ const CastGrid = () => {
       return ep.rating.average;
     })
   );
+
+  const onSearch = (e) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value);
+    console.log(searchTerm);
+  };
 
   return isLoading ? (
     <Spinner
@@ -48,7 +54,17 @@ const CastGrid = () => {
         </Text>
       </Flex>
 
-      <Searchbar />
+      <input
+        className="search-bar"
+        type="text"
+        placeholder="Search For episode by name"
+        onChange={(e) => {
+          e.preventDefault();
+          setSearchTerm(e.target.value);
+          console.log(searchTerm);
+        }}
+      />
+
       <Grid
         pl={28}
         pr={28}
@@ -57,20 +73,32 @@ const CastGrid = () => {
         templateColumns="repeat(2,1fr)"
         gap={6}
       >
-        {episodes.map((episode) => {
-          return (
-            <Episode
-              key={episode.id}
-              name={episode.name}
-              img={episode.image.original}
-              rating={episode.rating}
-              season={episode.season}
-              airdate={episode.airdate}
-              airtime={episode.airtime}
-              summary={episode.summary}
-            />
-          );
-        })}
+        {episodes
+          .filter((episode) => {
+            if (searchTerm === "") {
+              return episode;
+            } else if (
+              episode.name
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase())
+            ) {
+              return episode;
+            }
+          })
+          .map((episode) => {
+            return (
+              <Episode
+                key={episode.id}
+                name={episode.name}
+                img={episode.image.original}
+                rating={episode.rating}
+                season={episode.season}
+                airdate={episode.airdate}
+                airtime={episode.airtime}
+                summary={episode.summary}
+              />
+            );
+          })}
       </Grid>
     </Box>
   );
