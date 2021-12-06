@@ -54,16 +54,14 @@ const CastGrid = () => {
         </Text>
       </Flex>
 
-      <input
-        className="search-bar"
-        type="text"
-        placeholder="Search For episode by name"
-        onChange={(e) => {
-          e.preventDefault();
-          setSearchTerm(e.target.value);
-          console.log(searchTerm);
-        }}
-      />
+      <div className="search-bar-container">
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Search For episode by name"
+          onChange={onSearch}
+        />
+      </div>
 
       <Grid
         pl={28}
