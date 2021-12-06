@@ -8,6 +8,7 @@ import { Spinner } from "@chakra-ui/spinner";
 import { Button } from "@chakra-ui/button";
 
 import { fetchShow } from "../api";
+import { removeTags } from "../utils/helpers";
 import CastGrid from "./CastGrid";
 
 const MainPage = () => {
@@ -23,12 +24,6 @@ const MainPage = () => {
 
     fetchData();
   }, []);
-
-  function removeTags(str) {
-    if (str === null || str === "") return false;
-    else str = str.toString();
-    return str.replace(/(<([^>]+)>)/gi, "");
-  }
 
   return isLoading ? (
     <Flex h="100vh" justify="center" align="center">

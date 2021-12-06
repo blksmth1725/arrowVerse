@@ -21,16 +21,9 @@ const CastGrid = () => {
     fetchData();
   }, []);
 
-  console.log(
-    episodes.map((ep) => {
-      return ep.rating.average;
-    })
-  );
-
   const onSearch = (e) => {
     e.preventDefault();
     setSearchTerm(e.target.value);
-    console.log(searchTerm);
   };
 
   return isLoading ? (

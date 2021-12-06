@@ -51,6 +51,8 @@ const CastMember = () => {
 
     setCastMember(person);
     setCharacters(personsCharacters);
+    console.log(person);
+    console.log(personsCharacters);
   }, [memberId]);
 
   useEffect(() => {
