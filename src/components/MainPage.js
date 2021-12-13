@@ -48,16 +48,6 @@ const MainPage = () => {
           src={arrow.image.original}
           objectFit="cover"
         />
-        <Flex justify="center" align="center" pb={20}>
-          <Text
-            color="white"
-            className="top-left"
-            fontWeight="semibold"
-            fontSize={96}
-          >
-            {arrow.name}
-          </Text>
-        </Flex>
       </Box>
 
       {/* Summary Container */}

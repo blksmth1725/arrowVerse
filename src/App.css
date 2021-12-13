@@ -4,13 +4,6 @@
   color: white;
 }
 
-/* Top left text */
-.top-left {
-  position: absolute;
-  top: 12px;
-  left: 50px;
-}
-
 .search-bar-container {
   width: 100%;
   /* background-color: coral; */

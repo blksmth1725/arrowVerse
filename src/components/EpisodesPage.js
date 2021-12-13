@@ -40,7 +40,7 @@ const CastGrid = () => {
         justify="center"
         align="center"
         w="100%"
-        h={28}
+        h={16}
       >
         <Text color="white" fontSize={40} fontWeight="semibold">
           Episodes
