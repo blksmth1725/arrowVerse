@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { fetchShow } from "../api";
 import { Link } from "react-router-dom";
+import { Image } from "@chakra-ui/image";
+import arrowVerse from "../images/arrowVerse.png";
 
 const Navbar = () => {
   const [arrow, setArrow] = useState({});
@@ -32,6 +34,9 @@ const Navbar = () => {
             </Text>
           </Link>
         </Flex>
+        <Box ml={5} pb={5}>
+          <Image w={56} src={arrowVerse} />
+        </Box>
       </Box>
     </div>
   );
